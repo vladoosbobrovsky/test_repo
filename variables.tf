@@ -35,7 +35,7 @@ variable "availability_zones" {
 
 variable "health_check_path" {
   description = "Health check path for the default target group"
-  default     = "/ping/"
+  default     = "/"
 }
 
 
