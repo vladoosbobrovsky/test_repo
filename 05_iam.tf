@@ -21,7 +21,7 @@ resource "aws_iam_role_policy" "ecs-service-role-policy" {
 }
 
 resource "aws_iam_instance_profile" "ecs" {
-  name = "ecs_instance_profile_prod"
+  name = "ecs_instance_profile_prod_v1"
   path = "/"
   role = aws_iam_role.ecs-host-role.name
 }

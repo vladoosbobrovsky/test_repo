@@ -35,7 +35,7 @@ variable "availability_zones" {
 
 variable "health_check_path" {
   description = "Health check path for the default target group"
-  default     = "/ping/"
+  default     = "/"
 }
 
 
@@ -52,7 +52,7 @@ variable "amis" {
   }
 }
 variable "instance_type" {
-  default = "t2.large"
+  default = "t2.medium"
 }
 variable "docker_image_url_tomcat" {
   description = "Docker image to run in the ECS cluster"
