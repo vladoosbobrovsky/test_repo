@@ -47,9 +47,15 @@ resource "aws_subnet" "private-subnet-2" {
 # Route tables for the subnets
 resource "aws_route_table" "public-route-table" {
   vpc_id = aws_vpc.production-vpc.id
+  tags = {
+    Name = "public-route-table"
+  }
 }
 resource "aws_route_table" "private-route-table" {
   vpc_id = aws_vpc.production-vpc.id
+  tags = {
+    Name = "private-route-table"
+  }
 }
 
 # Associate the newly created route tables to the subnets
@@ -82,6 +88,9 @@ resource "aws_nat_gateway" "nat-gw" {
   allocation_id = aws_eip.elastic-ip-for-nat-gw.id
   subnet_id     = aws_subnet.public-subnet-1.id
   depends_on    = [aws_eip.elastic-ip-for-nat-gw]
+  tags = {
+    Name = "Prod_NAT-GW"
+  }
 }
 resource "aws_route" "nat-gw-route" {
   route_table_id         = aws_route_table.private-route-table.id
